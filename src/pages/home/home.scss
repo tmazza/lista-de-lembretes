@@ -1,0 +1,74 @@
+page-home {
+	.nsb-button {
+		border-radius: 60px;
+		text-align: center;
+		font-size: 2em;
+		width: 60px;
+		height: 60px;
+		line-height: 60px;
+		margin: 0 auto;
+	}
+	.nsb-button:active {
+		background: #f8f8f8;
+	}
+	.list .item-input.item-input-has-focus:last-child, .list .item-input.input-has-focus:last-child {
+		border-bottom-color: #000;
+		box-shadow: none;
+	}
+
+	.calendar {
+		display: block;
+		font-size: 1.6em;
+		text-align: center;
+    	height: 2em;
+		.hidden {
+			padding-top: 4px;
+			display: inline-block;
+			font-size: 0.6em;
+			opacity: 0;
+			padding-left: 10px;
+			padding-right: 10px;
+		}
+		.current {
+			padding-top: 4px;
+			display: inline-block;
+		}
+		.bool {
+			display: block;
+			height: 4px;
+		    width: 5px;
+		    background: red;
+		    margin: 0 auto;
+		    border-radius: 10px;
+		}
+		.today {
+			border-top: 1px solid #c4c2c2;
+		}
+		.subtext {
+			font-size: 0.5em;
+			// background: blue;
+    		line-height: 1em;
+    		text-transform: lowercase;
+		}
+	}
+	.calendar-active {
+		background: blue;
+		font-size: 1em;
+	}
+
+	.slide-calendar {
+		width: auto;
+		height: 40px;
+		border: 1px solid #bed5cd;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		white-space: nowrap;
+		.item {
+			height: 40px;
+			display: inline-block;
+			background: blue;
+			line-height: 40px;
+			font-size: 20px;
+		}		
+	}
+}

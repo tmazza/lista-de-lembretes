@@ -1,0 +1,69 @@
+<ion-content padding>
+  <div class='inner-content'>     
+    <div>
+      <ul class='nsb-list'>
+        <li *ngFor='let t of tasks;'
+            [ngClass]="{'set-done':t.done}"
+            (press)="delete(t)"
+            (dblclick)="toggleDone(t)">
+
+          <span class="alert" *ngIf="t.time">
+            {{t.time.setLocale('pt-br').toFormat("ccc")}} - {{t.time.day}}/{{t.time.month}}
+            <span class="alert" *ngIf="t.hora">
+              as {{t.hora}}
+            </span>
+            <br>
+          </span>
+
+          {{t.descricao}}
+
+        </li>
+      </ul>
+
+       
+      <div [hidden]="!show_add_task" *ngIf="new_task">
+        <hr>
+        <ion-input #addInput [autocomplete]="on" [(ngModel)]="new_task.descricao" placeholder="" type="text"></ion-input>
+        <hr>
+
+        <ion-row>
+          <ion-col col-6>
+              
+            <button color='dark' clear ion-button icon-only (click)="show_add_alert=!show_add_alert">
+              <ion-icon *ngIf="show_add_alert" name="ios-arrow-up"></ion-icon>
+              <ion-icon *ngIf="!show_add_alert" name="ios-time-outline"></ion-icon>
+            </button>
+          </ion-col>
+          <ion-col text-right>
+            <button color='dark' ion-button block (click)="addTask()" [disabled]="!new_task.descricao">
+              add
+            </button>
+          </ion-col>
+        </ion-row>
+
+        <div *ngIf="show_add_alert">
+          <ion-row>
+            <ion-col col-sm-6 col-12>
+              <ion-item>
+                <ion-label>Dia</ion-label>
+                <ion-datetime displayFormat="DD/MM/YYYY" [(ngModel)]="new_task.dia"></ion-datetime>
+              </ion-item>
+            </ion-col>
+
+            <ion-col col-sm-6 col-12>
+              <ion-item>
+                <ion-label>Hora</ion-label>
+                <ion-datetime displayFormat="HH:mm" [(ngModel)]="new_task.hora"></ion-datetime>
+              </ion-item>
+            </ion-col>
+          </ion-row>
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-toolbar text-center color='white'>
+    <div class="nsb-button" (click)="toggleAddTask()" [@addButton]="button_state">+</div> 
+  </ion-toolbar>
+</ion-footer>
